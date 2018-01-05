@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="wrapper">
+        <form action="/process_money" method="post">
+            <!-- <label for="gold">Your Gold: </label> -->
+            <h2>Your Gold</h2>
+            <input type="text" name="gold" id="gold" disabled value={{ session['gold'] }}>
+        </form>
+
+        <div id="main">
+            <div class="buildings">
+                <form action="process_money" method="post" class="buildings">
+                    <h2>Farm</h2>
+                    <p>(earns 10-20 gold)</p>
+                    <input type="hidden" name="building" value="Farm">
+                    <button type="submit" formaction="process_money">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="buildings">
+                <form action="process_money" method="post" class="buildings">
+                    <h2>Cave</h2>
+                    <p>(earns 5-10 gold)</p>
+                    <input type="hidden" name="building" value="Cave">
+                    <button type="submit" formaction="process_money">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="buildings">
+                <form action="process_money" method="post" class="buildings">
+                    <h2>House</h2>
+                    <p>(earns 2-5 gold)</p>
+                    <input type="hidden" name="building" value="House">
+                    <button type="submit" formaction="process_money">Find Gold!</button>
+                </form>
+            </div>
+
+            <div class="buildings">
+                <form action="process_money" method="post" class="buildings">
+                    <h2>Casino</h2>
+                    <p>(earns 0-50 gold)</p>
+                    <input type="hidden" name="building" value="Casino">
+                    <button type="submit" formaction="process_money">Find Gold!</button>
+                </form>
+            </div>
+        </div>
+        <div id="activities">
+            <h2>Activities</h2>
+            <textarea name="activities" id="activities" cols="30" rows="10">{{ session['activity'] }}</textarea>
+        </div>
+        
+
+        <form action="reset" method="post">
+            <button type="submit" formaction="reset" id="reset">Reset</button>
+        </form>
+    </div>
+</body>
+</html>
